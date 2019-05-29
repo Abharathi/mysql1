@@ -1,0 +1,911 @@
+Microsoft Windows [Version 10.0.17763.503]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\xampp\mysql>dir
+ Volume in drive C has no label.
+ Volume Serial Number is 0A2F-2202
+
+ Directory of C:\xampp\mysql
+
+05/21/2019  05:16 PM    <DIR>          .
+05/21/2019  05:16 PM    <DIR>          ..
+05/21/2019  05:16 PM    <DIR>          backup
+05/21/2019  05:19 PM    <DIR>          bin
+05/07/2019  01:49 PM            17,987 COPYING
+05/07/2019  01:49 PM            86,263 COPYING.thirdparty
+05/07/2019  01:49 PM             2,354 CREDITS
+05/28/2019  09:37 AM    <DIR>          data
+05/07/2019  01:49 PM             8,245 EXCEPTIONS-CLIENT
+05/07/2019  03:36 PM             5,057 my-huge.ini
+05/07/2019  03:36 PM            20,909 my-innodb-heavy-4G.ini
+05/07/2019  03:36 PM             5,044 my-large.ini
+05/07/2019  03:36 PM             5,055 my-medium.ini
+05/07/2019  03:36 PM             2,921 my-small.ini
+03/30/2013  05:29 AM               848 mysql_installservice.bat
+03/30/2013  05:29 AM               395 mysql_uninstallservice.bat
+05/07/2019  01:49 PM             2,196 README
+03/30/2013  05:29 AM             1,105 resetroot.bat
+05/21/2019  05:16 PM    <DIR>          scripts
+05/21/2019  05:16 PM    <DIR>          share
+              13 File(s)        158,379 bytes
+               7 Dir(s)  167,545,655,296 bytes free
+
+C:\xampp\mysql>cd bin
+
+C:\xampp\mysql\bin>mysql
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 19
+Server version: 10.1.40-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> exit
+Bye
+
+C:\xampp\mysql\bin>mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 20
+Server version: 10.1.40-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'database' at line 1
+MariaDB [(none)]> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| shirts_db          |
+| t                  |
+| table              |
+| test               |
+| tweet table        |
++--------------------+
+9 rows in set (0.00 sec)
+
+MariaDB [(none)]> use table;
+Database changed
+MariaDB [table]> show tables;
++-----------------+
+| Tables_in_table |
++-----------------+
+| books           |
+| cats            |
+| char            |
+| chartable       |
+| employees       |
+| inventory       |
+| papers          |
+| people          |
+| students        |
+| varchar table   |
++-----------------+
+10 rows in set (0.00 sec)
+
+MariaDB [table]> select * from books;
++---------+-----------------------------------------------------+--------------+----------------+---------------+----------------+-------+
+| book_id | title                                               | author_fname | author_lname   | released_year | stock_quantity | pages |
++---------+-----------------------------------------------------+--------------+----------------+---------------+----------------+-------+
+|       1 | The Namesake                                        | Jhumpa       | Lahiri         |          2003 |             32 |   291 |
+|       2 | Norse Mythology                                     | Neil         | Gaiman         |          2016 |             43 |   304 |
+|       3 | American Gods                                       | Neil         | Gaiman         |          2001 |             12 |   465 |
+|       4 | Interpreter of Maladies                             | Jhumpa       | Lahiri         |          1996 |             97 |   198 |
+|       5 | A Hologram for the King: A Novel                    | Dave         | Eggers         |          2012 |            154 |   352 |
+|       6 | The Circle                                          | Dave         | Eggers         |          2013 |             26 |   504 |
+|       7 | The Amazing Adventures of Kavalier & Clay           | Michael      | Chabon         |          2000 |             68 |   634 |
+|       8 | Just Kids                                           | Patti        | Smith          |          2010 |             55 |   304 |
+|       9 | A Heartbreaking Work of Staggering Genius           | Dave         | Eggers         |          2001 |            104 |   437 |
+|      10 | Coraline                                            | Neil         | Gaiman         |          2003 |            100 |   208 |
+|      11 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver         |          1981 |             23 |   176 |
+|      12 | Where I'm Calling From: Selected Stories            | Raymond      | Carver         |          1989 |             12 |   526 |
+|      13 | White Noise                                         | Don          | DeLillo        |          1985 |             49 |   320 |
+|      14 | Cannery Row                                         | John         | Steinbeck      |          1945 |             95 |   181 |
+|      15 | Oblivion: Stories                                   | David        | Foster Wallace |          2004 |            172 |   329 |
+|      16 | Consider the Lobster                                | David        | Foster Wallace |          2005 |             92 |   343 |
+|      17 | The Namesake                                        | Jhumpa       | Lahiri         |          2003 |             32 |   291 |
+|      18 | Norse Mythology                                     | Neil         | Gaiman         |          2016 |             43 |   304 |
+|      19 | American Gods                                       | Neil         | Gaiman         |          2001 |             12 |   465 |
+|      20 | Interpreter of Maladies                             | Jhumpa       | Lahiri         |          1996 |             97 |   198 |
+|      21 | A Hologram for the King: A Novel                    | Dave         | Eggers         |          2012 |            154 |   352 |
+|      22 | The Circle                                          | Dave         | Eggers         |          2013 |             26 |   504 |
+|      23 | The Amazing Adventures of Kavalier & Clay           | Michael      | Chabon         |          2000 |             68 |   634 |
+|      24 | Just Kids                                           | Patti        | Smith          |          2010 |             55 |   304 |
+|      25 | A Heartbreaking Work of Staggering Genius           | Dave         | Eggers         |          2001 |            104 |   437 |
+|      26 | Coraline                                            | Neil         | Gaiman         |          2003 |            100 |   208 |
+|      27 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver         |          1981 |             23 |   176 |
+|      28 | Where I'm Calling From: Selected Stories            | Raymond      | Carver         |          1989 |             12 |   526 |
+|      29 | White Noise                                         | Don          | DeLillo        |          1985 |             49 |   320 |
+|      30 | Cannery Row                                         | John         | Steinbeck      |          1945 |             95 |   181 |
+|      31 | Oblivion: Stories                                   | David        | Foster Wallace |          2004 |            172 |   329 |
+|      32 | Consider the Lobster                                | David        | Foster Wallace |          2005 |             92 |   343 |
+|      33 | 10% Happier                                         | Dan          | Harris         |          2014 |             29 |   256 |
+|      34 | fake_book                                           | Freida       | Harris         |          2001 |            287 |   428 |
+|      35 | Lincoln In The Bardo                                | George       | Saunders       |          2017 |           1000 |   367 |
+|      36 | undefined                                           | undefined    | NULL           |          NULL |           NULL |  NULL |
++---------+-----------------------------------------------------+--------------+----------------+---------------+----------------+-------+
+36 rows in set (0.03 sec)
+
+MariaDB [table]> select title title from books where released_year!=2017;
++-----------------------------------------------------+
+| title                                               |
++-----------------------------------------------------+
+| The Namesake                                        |
+| Norse Mythology                                     |
+| American Gods                                       |
+| Interpreter of Maladies                             |
+| A Hologram for the King: A Novel                    |
+| The Circle                                          |
+| The Amazing Adventures of Kavalier & Clay           |
+| Just Kids                                           |
+| A Heartbreaking Work of Staggering Genius           |
+| Coraline                                            |
+| What We Talk About When We Talk About Love: Stories |
+| Where I'm Calling From: Selected Stories            |
+| White Noise                                         |
+| Cannery Row                                         |
+| Oblivion: Stories                                   |
+| Consider the Lobster                                |
+| The Namesake                                        |
+| Norse Mythology                                     |
+| American Gods                                       |
+| Interpreter of Maladies                             |
+| A Hologram for the King: A Novel                    |
+| The Circle                                          |
+| The Amazing Adventures of Kavalier & Clay           |
+| Just Kids                                           |
+| A Heartbreaking Work of Staggering Genius           |
+| Coraline                                            |
+| What We Talk About When We Talk About Love: Stories |
+| Where I'm Calling From: Selected Stories            |
+| White Noise                                         |
+| Cannery Row                                         |
+| Oblivion: Stories                                   |
+| Consider the Lobster                                |
+| 10% Happier                                         |
+| fake_book                                           |
++-----------------------------------------------------+
+34 rows in set (0.00 sec)
+
+MariaDB [table]> select title from books where title not like 'w%';
++-------------------------------------------+
+| title                                     |
++-------------------------------------------+
+| The Namesake                              |
+| Norse Mythology                           |
+| American Gods                             |
+| Interpreter of Maladies                   |
+| A Hologram for the King: A Novel          |
+| The Circle                                |
+| The Amazing Adventures of Kavalier & Clay |
+| Just Kids                                 |
+| A Heartbreaking Work of Staggering Genius |
+| Coraline                                  |
+| Cannery Row                               |
+| Oblivion: Stories                         |
+| Consider the Lobster                      |
+| The Namesake                              |
+| Norse Mythology                           |
+| American Gods                             |
+| Interpreter of Maladies                   |
+| A Hologram for the King: A Novel          |
+| The Circle                                |
+| The Amazing Adventures of Kavalier & Clay |
+| Just Kids                                 |
+| A Heartbreaking Work of Staggering Genius |
+| Coraline                                  |
+| Cannery Row                               |
+| Oblivion: Stories                         |
+| Consider the Lobster                      |
+| 10% Happier                               |
+| fake_book                                 |
+| Lincoln In The Bardo                      |
+| undefined                                 |
++-------------------------------------------+
+30 rows in set (0.02 sec)
+
+MariaDB [table]> select * from books where released_year >2000;
++---------+-------------------------------------------+--------------+----------------+---------------+----------------+-------+
+| book_id | title                                     | author_fname | author_lname   | released_year | stock_quantity | pages |
++---------+-------------------------------------------+--------------+----------------+---------------+----------------+-------+
+|       1 | The Namesake                              | Jhumpa       | Lahiri         |          2003 |             32 |   291 |
+|       2 | Norse Mythology                           | Neil         | Gaiman         |          2016 |             43 |   304 |
+|       3 | American Gods                             | Neil         | Gaiman         |          2001 |             12 |   465 |
+|       5 | A Hologram for the King: A Novel          | Dave         | Eggers         |          2012 |            154 |   352 |
+|       6 | The Circle                                | Dave         | Eggers         |          2013 |             26 |   504 |
+|       8 | Just Kids                                 | Patti        | Smith          |          2010 |             55 |   304 |
+|       9 | A Heartbreaking Work of Staggering Genius | Dave         | Eggers         |          2001 |            104 |   437 |
+|      10 | Coraline                                  | Neil         | Gaiman         |          2003 |            100 |   208 |
+|      15 | Oblivion: Stories                         | David        | Foster Wallace |          2004 |            172 |   329 |
+|      16 | Consider the Lobster                      | David        | Foster Wallace |          2005 |             92 |   343 |
+|      17 | The Namesake                              | Jhumpa       | Lahiri         |          2003 |             32 |   291 |
+|      18 | Norse Mythology                           | Neil         | Gaiman         |          2016 |             43 |   304 |
+|      19 | American Gods                             | Neil         | Gaiman         |          2001 |             12 |   465 |
+|      21 | A Hologram for the King: A Novel          | Dave         | Eggers         |          2012 |            154 |   352 |
+|      22 | The Circle                                | Dave         | Eggers         |          2013 |             26 |   504 |
+|      24 | Just Kids                                 | Patti        | Smith          |          2010 |             55 |   304 |
+|      25 | A Heartbreaking Work of Staggering Genius | Dave         | Eggers         |          2001 |            104 |   437 |
+|      26 | Coraline                                  | Neil         | Gaiman         |          2003 |            100 |   208 |
+|      31 | Oblivion: Stories                         | David        | Foster Wallace |          2004 |            172 |   329 |
+|      32 | Consider the Lobster                      | David        | Foster Wallace |          2005 |             92 |   343 |
+|      33 | 10% Happier                               | Dan          | Harris         |          2014 |             29 |   256 |
+|      34 | fake_book                                 | Freida       | Harris         |          2001 |            287 |   428 |
+|      35 | Lincoln In The Bardo                      | George       | Saunders       |          2017 |           1000 |   367 |
++---------+-------------------------------------------+--------------+----------------+---------------+----------------+-------+
+23 rows in set (0.00 sec)
+
+MariaDB [table]> select 99>1;
++------+
+| 99>1 |
++------+
+|    1 |
++------+
+1 row in set (0.00 sec)
+
+MariaDB [table]> select * from books where released_year < 2000;
++---------+-----------------------------------------------------+--------------+--------------+---------------+----------------+-------+
+| book_id | title                                               | author_fname | author_lname | released_year | stock_quantity | pages |
++---------+-----------------------------------------------------+--------------+--------------+---------------+----------------+-------+
+|       4 | Interpreter of Maladies                             | Jhumpa       | Lahiri       |          1996 |             97 |   198 |
+|      11 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver       |          1981 |             23 |   176 |
+|      12 | Where I'm Calling From: Selected Stories            | Raymond      | Carver       |          1989 |             12 |   526 |
+|      13 | White Noise                                         | Don          | DeLillo      |          1985 |             49 |   320 |
+|      14 | Cannery Row                                         | John         | Steinbeck    |          1945 |             95 |   181 |
+|      20 | Interpreter of Maladies                             | Jhumpa       | Lahiri       |          1996 |             97 |   198 |
+|      27 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver       |          1981 |             23 |   176 |
+|      28 | Where I'm Calling From: Selected Stories            | Raymond      | Carver       |          1989 |             12 |   526 |
+|      29 | White Noise                                         | Don          | DeLillo      |          1985 |             49 |   320 |
+|      30 | Cannery Row                                         | John         | Steinbeck    |          1945 |             95 |   181 |
++---------+-----------------------------------------------------+--------------+--------------+---------------+----------------+-------+
+10 rows in set (0.00 sec)
+
+MariaDB [table]> select * from books where released_year <= 2000;
++---------+-----------------------------------------------------+--------------+--------------+---------------+----------------+-------+
+| book_id | title                                               | author_fname | author_lname | released_year | stock_quantity | pages |
++---------+-----------------------------------------------------+--------------+--------------+---------------+----------------+-------+
+|       4 | Interpreter of Maladies                             | Jhumpa       | Lahiri       |          1996 |             97 |   198 |
+|       7 | The Amazing Adventures of Kavalier & Clay           | Michael      | Chabon       |          2000 |             68 |   634 |
+|      11 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver       |          1981 |             23 |   176 |
+|      12 | Where I'm Calling From: Selected Stories            | Raymond      | Carver       |          1989 |             12 |   526 |
+|      13 | White Noise                                         | Don          | DeLillo      |          1985 |             49 |   320 |
+|      14 | Cannery Row                                         | John         | Steinbeck    |          1945 |             95 |   181 |
+|      20 | Interpreter of Maladies                             | Jhumpa       | Lahiri       |          1996 |             97 |   198 |
+|      23 | The Amazing Adventures of Kavalier & Clay           | Michael      | Chabon       |          2000 |             68 |   634 |
+|      27 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver       |          1981 |             23 |   176 |
+|      28 | Where I'm Calling From: Selected Stories            | Raymond      | Carver       |          1989 |             12 |   526 |
+|      29 | White Noise                                         | Don          | DeLillo      |          1985 |             49 |   320 |
+|      30 | Cannery Row                                         | John         | Steinbeck    |          1945 |             95 |   181 |
++---------+-----------------------------------------------------+--------------+--------------+---------------+----------------+-------+
+12 rows in set (0.00 sec)
+
+MariaDB [table]> select * from books;
++---------+-----------------------------------------------------+--------------+----------------+---------------+----------------+-------+
+| book_id | title                                               | author_fname | author_lname   | released_year | stock_quantity | pages |
++---------+-----------------------------------------------------+--------------+----------------+---------------+----------------+-------+
+|       1 | The Namesake                                        | Jhumpa       | Lahiri         |          2003 |             32 |   291 |
+|       2 | Norse Mythology                                     | Neil         | Gaiman         |          2016 |             43 |   304 |
+|       3 | American Gods                                       | Neil         | Gaiman         |          2001 |             12 |   465 |
+|       4 | Interpreter of Maladies                             | Jhumpa       | Lahiri         |          1996 |             97 |   198 |
+|       5 | A Hologram for the King: A Novel                    | Dave         | Eggers         |          2012 |            154 |   352 |
+|       6 | The Circle                                          | Dave         | Eggers         |          2013 |             26 |   504 |
+|       7 | The Amazing Adventures of Kavalier & Clay           | Michael      | Chabon         |          2000 |             68 |   634 |
+|       8 | Just Kids                                           | Patti        | Smith          |          2010 |             55 |   304 |
+|       9 | A Heartbreaking Work of Staggering Genius           | Dave         | Eggers         |          2001 |            104 |   437 |
+|      10 | Coraline                                            | Neil         | Gaiman         |          2003 |            100 |   208 |
+|      11 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver         |          1981 |             23 |   176 |
+|      12 | Where I'm Calling From: Selected Stories            | Raymond      | Carver         |          1989 |             12 |   526 |
+|      13 | White Noise                                         | Don          | DeLillo        |          1985 |             49 |   320 |
+|      14 | Cannery Row                                         | John         | Steinbeck      |          1945 |             95 |   181 |
+|      15 | Oblivion: Stories                                   | David        | Foster Wallace |          2004 |            172 |   329 |
+|      16 | Consider the Lobster                                | David        | Foster Wallace |          2005 |             92 |   343 |
+|      17 | The Namesake                                        | Jhumpa       | Lahiri         |          2003 |             32 |   291 |
+|      18 | Norse Mythology                                     | Neil         | Gaiman         |          2016 |             43 |   304 |
+|      19 | American Gods                                       | Neil         | Gaiman         |          2001 |             12 |   465 |
+|      20 | Interpreter of Maladies                             | Jhumpa       | Lahiri         |          1996 |             97 |   198 |
+|      21 | A Hologram for the King: A Novel                    | Dave         | Eggers         |          2012 |            154 |   352 |
+|      22 | The Circle                                          | Dave         | Eggers         |          2013 |             26 |   504 |
+|      23 | The Amazing Adventures of Kavalier & Clay           | Michael      | Chabon         |          2000 |             68 |   634 |
+|      24 | Just Kids                                           | Patti        | Smith          |          2010 |             55 |   304 |
+|      25 | A Heartbreaking Work of Staggering Genius           | Dave         | Eggers         |          2001 |            104 |   437 |
+|      26 | Coraline                                            | Neil         | Gaiman         |          2003 |            100 |   208 |
+|      27 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver         |          1981 |             23 |   176 |
+|      28 | Where I'm Calling From: Selected Stories            | Raymond      | Carver         |          1989 |             12 |   526 |
+|      29 | White Noise                                         | Don          | DeLillo        |          1985 |             49 |   320 |
+|      30 | Cannery Row                                         | John         | Steinbeck      |          1945 |             95 |   181 |
+|      31 | Oblivion: Stories                                   | David        | Foster Wallace |          2004 |            172 |   329 |
+|      32 | Consider the Lobster                                | David        | Foster Wallace |          2005 |             92 |   343 |
+|      33 | 10% Happier                                         | Dan          | Harris         |          2014 |             29 |   256 |
+|      34 | fake_book                                           | Freida       | Harris         |          2001 |            287 |   428 |
+|      35 | Lincoln In The Bardo                                | George       | Saunders       |          2017 |           1000 |   367 |
+|      36 | undefined                                           | undefined    | NULL           |          NULL |           NULL |  NULL |
++---------+-----------------------------------------------------+--------------+----------------+---------------+----------------+-------+
+36 rows in set (0.00 sec)
+
+MariaDB [table]> select * from books where author_lname='eggers' AND released_year > 2010;
++---------+----------------------------------+--------------+--------------+---------------+----------------+-------+
+| book_id | title                            | author_fname | author_lname | released_year | stock_quantity | pages |
++---------+----------------------------------+--------------+--------------+---------------+----------------+-------+
+|       5 | A Hologram for the King: A Novel | Dave         | Eggers       |          2012 |            154 |   352 |
+|       6 | The Circle                       | Dave         | Eggers       |          2013 |             26 |   504 |
+|      21 | A Hologram for the King: A Novel | Dave         | Eggers       |          2012 |            154 |   352 |
+|      22 | The Circle                       | Dave         | Eggers       |          2013 |             26 |   504 |
++---------+----------------------------------+--------------+--------------+---------------+----------------+-------+
+4 rows in set (0.00 sec)
+
+MariaDB [table]> select * from books where author_lname='eggers' AND released_year > 2010 and title like '%novel%';
++---------+----------------------------------+--------------+--------------+---------------+----------------+-------+
+| book_id | title                            | author_fname | author_lname | released_year | stock_quantity | pages |
++---------+----------------------------------+--------------+--------------+---------------+----------------+-------+
+|       5 | A Hologram for the King: A Novel | Dave         | Eggers       |          2012 |            154 |   352 |
+|      21 | A Hologram for the King: A Novel | Dave         | Eggers       |          2012 |            154 |   352 |
++---------+----------------------------------+--------------+--------------+---------------+----------------+-------+
+2 rows in set (0.00 sec)
+
+MariaDB [table]> select * from books where author_lname='eggers' && released_year > 2010;
++---------+----------------------------------+--------------+--------------+---------------+----------------+-------+
+| book_id | title                            | author_fname | author_lname | released_year | stock_quantity | pages |
++---------+----------------------------------+--------------+--------------+---------------+----------------+-------+
+|       5 | A Hologram for the King: A Novel | Dave         | Eggers       |          2012 |            154 |   352 |
+|       6 | The Circle                       | Dave         | Eggers       |          2013 |             26 |   504 |
+|      21 | A Hologram for the King: A Novel | Dave         | Eggers       |          2012 |            154 |   352 |
+|      22 | The Circle                       | Dave         | Eggers       |          2013 |             26 |   504 |
++---------+----------------------------------+--------------+--------------+---------------+----------------+-------+
+4 rows in set (0.00 sec)
+
+MariaDB [table]> select * from books where author_lname='eggers' || released_year > 2010;
++---------+-------------------------------------------+--------------+--------------+---------------+----------------+-------+
+| book_id | title                                     | author_fname | author_lname | released_year | stock_quantity | pages |
++---------+-------------------------------------------+--------------+--------------+---------------+----------------+-------+
+|       2 | Norse Mythology                           | Neil         | Gaiman       |          2016 |             43 |   304 |
+|       5 | A Hologram for the King: A Novel          | Dave         | Eggers       |          2012 |            154 |   352 |
+|       6 | The Circle                                | Dave         | Eggers       |          2013 |             26 |   504 |
+|       9 | A Heartbreaking Work of Staggering Genius | Dave         | Eggers       |          2001 |            104 |   437 |
+|      18 | Norse Mythology                           | Neil         | Gaiman       |          2016 |             43 |   304 |
+|      21 | A Hologram for the King: A Novel          | Dave         | Eggers       |          2012 |            154 |   352 |
+|      22 | The Circle                                | Dave         | Eggers       |          2013 |             26 |   504 |
+|      25 | A Heartbreaking Work of Staggering Genius | Dave         | Eggers       |          2001 |            104 |   437 |
+|      33 | 10% Happier                               | Dan          | Harris       |          2014 |             29 |   256 |
+|      35 | Lincoln In The Bardo                      | George       | Saunders     |          2017 |           1000 |   367 |
++---------+-------------------------------------------+--------------+--------------+---------------+----------------+-------+
+10 rows in set (0.00 sec)
+
+MariaDB [table]> select * books where released_year>= 2004 && released_year <= 2015;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'books where released_year>= 2004 && released_year <= 2015' at line 1
+MariaDB [table]> select * from books where released_year>= 2004 && released_year <= 2015;
++---------+----------------------------------+--------------+----------------+---------------+----------------+-------+
+| book_id | title                            | author_fname | author_lname   | released_year | stock_quantity | pages |
++---------+----------------------------------+--------------+----------------+---------------+----------------+-------+
+|       5 | A Hologram for the King: A Novel | Dave         | Eggers         |          2012 |            154 |   352 |
+|       6 | The Circle                       | Dave         | Eggers         |          2013 |             26 |   504 |
+|       8 | Just Kids                        | Patti        | Smith          |          2010 |             55 |   304 |
+|      15 | Oblivion: Stories                | David        | Foster Wallace |          2004 |            172 |   329 |
+|      16 | Consider the Lobster             | David        | Foster Wallace |          2005 |             92 |   343 |
+|      21 | A Hologram for the King: A Novel | Dave         | Eggers         |          2012 |            154 |   352 |
+|      22 | The Circle                       | Dave         | Eggers         |          2013 |             26 |   504 |
+|      24 | Just Kids                        | Patti        | Smith          |          2010 |             55 |   304 |
+|      31 | Oblivion: Stories                | David        | Foster Wallace |          2004 |            172 |   329 |
+|      32 | Consider the Lobster             | David        | Foster Wallace |          2005 |             92 |   343 |
+|      33 | 10% Happier                      | Dan          | Harris         |          2014 |             29 |   256 |
++---------+----------------------------------+--------------+----------------+---------------+----------------+-------+
+11 rows in set (0.00 sec)
+
+MariaDB [table]> select * from books where released_year between 2004 and 2015;
++---------+----------------------------------+--------------+----------------+---------------+----------------+-------+
+| book_id | title                            | author_fname | author_lname   | released_year | stock_quantity | pages |
++---------+----------------------------------+--------------+----------------+---------------+----------------+-------+
+|       5 | A Hologram for the King: A Novel | Dave         | Eggers         |          2012 |            154 |   352 |
+|       6 | The Circle                       | Dave         | Eggers         |          2013 |             26 |   504 |
+|       8 | Just Kids                        | Patti        | Smith          |          2010 |             55 |   304 |
+|      15 | Oblivion: Stories                | David        | Foster Wallace |          2004 |            172 |   329 |
+|      16 | Consider the Lobster             | David        | Foster Wallace |          2005 |             92 |   343 |
+|      21 | A Hologram for the King: A Novel | Dave         | Eggers         |          2012 |            154 |   352 |
+|      22 | The Circle                       | Dave         | Eggers         |          2013 |             26 |   504 |
+|      24 | Just Kids                        | Patti        | Smith          |          2010 |             55 |   304 |
+|      31 | Oblivion: Stories                | David        | Foster Wallace |          2004 |            172 |   329 |
+|      32 | Consider the Lobster             | David        | Foster Wallace |          2005 |             92 |   343 |
+|      33 | 10% Happier                      | Dan          | Harris         |          2014 |             29 |   256 |
++---------+----------------------------------+--------------+----------------+---------------+----------------+-------+
+11 rows in set (0.00 sec)
+
+MariaDB [table]> select title,released_year from books where released_year between 2004 and 2015;
++----------------------------------+---------------+
+| title                            | released_year |
++----------------------------------+---------------+
+| A Hologram for the King: A Novel |          2012 |
+| The Circle                       |          2013 |
+| Just Kids                        |          2010 |
+| Oblivion: Stories                |          2004 |
+| Consider the Lobster             |          2005 |
+| A Hologram for the King: A Novel |          2012 |
+| The Circle                       |          2013 |
+| Just Kids                        |          2010 |
+| Oblivion: Stories                |          2004 |
+| Consider the Lobster             |          2005 |
+| 10% Happier                      |          2014 |
++----------------------------------+---------------+
+11 rows in set (0.00 sec)
+
+MariaDB [table]> select title,released_year from books where released_year not between 2004 and 2015;
++-----------------------------------------------------+---------------+
+| title                                               | released_year |
++-----------------------------------------------------+---------------+
+| The Namesake                                        |          2003 |
+| Norse Mythology                                     |          2016 |
+| American Gods                                       |          2001 |
+| Interpreter of Maladies                             |          1996 |
+| The Amazing Adventures of Kavalier & Clay           |          2000 |
+| A Heartbreaking Work of Staggering Genius           |          2001 |
+| Coraline                                            |          2003 |
+| What We Talk About When We Talk About Love: Stories |          1981 |
+| Where I'm Calling From: Selected Stories            |          1989 |
+| White Noise                                         |          1985 |
+| Cannery Row                                         |          1945 |
+| The Namesake                                        |          2003 |
+| Norse Mythology                                     |          2016 |
+| American Gods                                       |          2001 |
+| Interpreter of Maladies                             |          1996 |
+| The Amazing Adventures of Kavalier & Clay           |          2000 |
+| A Heartbreaking Work of Staggering Genius           |          2001 |
+| Coraline                                            |          2003 |
+| What We Talk About When We Talk About Love: Stories |          1981 |
+| Where I'm Calling From: Selected Stories            |          1989 |
+| White Noise                                         |          1985 |
+| Cannery Row                                         |          1945 |
+| fake_book                                           |          2001 |
+| Lincoln In The Bardo                                |          2017 |
++-----------------------------------------------------+---------------+
+24 rows in set (0.00 sec)
+
+MariaDB [table]> select title,author_lname from books where author_lname='carver' or author_lname='lahiri' or author_lname='smith';
++-----------------------------------------------------+--------------+
+| title                                               | author_lname |
++-----------------------------------------------------+--------------+
+| The Namesake                                        | Lahiri       |
+| Interpreter of Maladies                             | Lahiri       |
+| Just Kids                                           | Smith        |
+| What We Talk About When We Talk About Love: Stories | Carver       |
+| Where I'm Calling From: Selected Stories            | Carver       |
+| The Namesake                                        | Lahiri       |
+| Interpreter of Maladies                             | Lahiri       |
+| Just Kids                                           | Smith        |
+| What We Talk About When We Talk About Love: Stories | Carver       |
+| Where I'm Calling From: Selected Stories            | Carver       |
++-----------------------------------------------------+--------------+
+10 rows in set (0.00 sec)
+
+MariaDB [table]> select title,author_lname from books where author_lname in('carver','lahiri','smith');
++-----------------------------------------------------+--------------+
+| title                                               | author_lname |
++-----------------------------------------------------+--------------+
+| The Namesake                                        | Lahiri       |
+| Interpreter of Maladies                             | Lahiri       |
+| Just Kids                                           | Smith        |
+| What We Talk About When We Talk About Love: Stories | Carver       |
+| Where I'm Calling From: Selected Stories            | Carver       |
+| The Namesake                                        | Lahiri       |
+| Interpreter of Maladies                             | Lahiri       |
+| Just Kids                                           | Smith        |
+| What We Talk About When We Talk About Love: Stories | Carver       |
+| Where I'm Calling From: Selected Stories            | Carver       |
++-----------------------------------------------------+--------------+
+10 rows in set (0.00 sec)
+
+MariaDB [table]> select * from books where released_year not in (2000,2002,2004,2006,2008,2010,2012,2014);
++---------+-----------------------------------------------------+--------------+----------------+---------------+----------------+-------+
+| book_id | title                                               | author_fname | author_lname   | released_year | stock_quantity | pages |
++---------+-----------------------------------------------------+--------------+----------------+---------------+----------------+-------+
+|       1 | The Namesake                                        | Jhumpa       | Lahiri         |          2003 |             32 |   291 |
+|       2 | Norse Mythology                                     | Neil         | Gaiman         |          2016 |             43 |   304 |
+|       3 | American Gods                                       | Neil         | Gaiman         |          2001 |             12 |   465 |
+|       4 | Interpreter of Maladies                             | Jhumpa       | Lahiri         |          1996 |             97 |   198 |
+|       6 | The Circle                                          | Dave         | Eggers         |          2013 |             26 |   504 |
+|       9 | A Heartbreaking Work of Staggering Genius           | Dave         | Eggers         |          2001 |            104 |   437 |
+|      10 | Coraline                                            | Neil         | Gaiman         |          2003 |            100 |   208 |
+|      11 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver         |          1981 |             23 |   176 |
+|      12 | Where I'm Calling From: Selected Stories            | Raymond      | Carver         |          1989 |             12 |   526 |
+|      13 | White Noise                                         | Don          | DeLillo        |          1985 |             49 |   320 |
+|      14 | Cannery Row                                         | John         | Steinbeck      |          1945 |             95 |   181 |
+|      16 | Consider the Lobster                                | David        | Foster Wallace |          2005 |             92 |   343 |
+|      17 | The Namesake                                        | Jhumpa       | Lahiri         |          2003 |             32 |   291 |
+|      18 | Norse Mythology                                     | Neil         | Gaiman         |          2016 |             43 |   304 |
+|      19 | American Gods                                       | Neil         | Gaiman         |          2001 |             12 |   465 |
+|      20 | Interpreter of Maladies                             | Jhumpa       | Lahiri         |          1996 |             97 |   198 |
+|      22 | The Circle                                          | Dave         | Eggers         |          2013 |             26 |   504 |
+|      25 | A Heartbreaking Work of Staggering Genius           | Dave         | Eggers         |          2001 |            104 |   437 |
+|      26 | Coraline                                            | Neil         | Gaiman         |          2003 |            100 |   208 |
+|      27 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver         |          1981 |             23 |   176 |
+|      28 | Where I'm Calling From: Selected Stories            | Raymond      | Carver         |          1989 |             12 |   526 |
+|      29 | White Noise                                         | Don          | DeLillo        |          1985 |             49 |   320 |
+|      30 | Cannery Row                                         | John         | Steinbeck      |          1945 |             95 |   181 |
+|      32 | Consider the Lobster                                | David        | Foster Wallace |          2005 |             92 |   343 |
+|      34 | fake_book                                           | Freida       | Harris         |          2001 |            287 |   428 |
+|      35 | Lincoln In The Bardo                                | George       | Saunders       |          2017 |           1000 |   367 |
++---------+-----------------------------------------------------+--------------+----------------+---------------+----------------+-------+
+26 rows in set (0.00 sec)
+
+MariaDB [table]> select * from books where released_year > 2000;
++---------+-------------------------------------------+--------------+----------------+---------------+----------------+-------+
+| book_id | title                                     | author_fname | author_lname   | released_year | stock_quantity | pages |
++---------+-------------------------------------------+--------------+----------------+---------------+----------------+-------+
+|       1 | The Namesake                              | Jhumpa       | Lahiri         |          2003 |             32 |   291 |
+|       2 | Norse Mythology                           | Neil         | Gaiman         |          2016 |             43 |   304 |
+|       3 | American Gods                             | Neil         | Gaiman         |          2001 |             12 |   465 |
+|       5 | A Hologram for the King: A Novel          | Dave         | Eggers         |          2012 |            154 |   352 |
+|       6 | The Circle                                | Dave         | Eggers         |          2013 |             26 |   504 |
+|       8 | Just Kids                                 | Patti        | Smith          |          2010 |             55 |   304 |
+|       9 | A Heartbreaking Work of Staggering Genius | Dave         | Eggers         |          2001 |            104 |   437 |
+|      10 | Coraline                                  | Neil         | Gaiman         |          2003 |            100 |   208 |
+|      15 | Oblivion: Stories                         | David        | Foster Wallace |          2004 |            172 |   329 |
+|      16 | Consider the Lobster                      | David        | Foster Wallace |          2005 |             92 |   343 |
+|      17 | The Namesake                              | Jhumpa       | Lahiri         |          2003 |             32 |   291 |
+|      18 | Norse Mythology                           | Neil         | Gaiman         |          2016 |             43 |   304 |
+|      19 | American Gods                             | Neil         | Gaiman         |          2001 |             12 |   465 |
+|      21 | A Hologram for the King: A Novel          | Dave         | Eggers         |          2012 |            154 |   352 |
+|      22 | The Circle                                | Dave         | Eggers         |          2013 |             26 |   504 |
+|      24 | Just Kids                                 | Patti        | Smith          |          2010 |             55 |   304 |
+|      25 | A Heartbreaking Work of Staggering Genius | Dave         | Eggers         |          2001 |            104 |   437 |
+|      26 | Coraline                                  | Neil         | Gaiman         |          2003 |            100 |   208 |
+|      31 | Oblivion: Stories                         | David        | Foster Wallace |          2004 |            172 |   329 |
+|      32 | Consider the Lobster                      | David        | Foster Wallace |          2005 |             92 |   343 |
+|      33 | 10% Happier                               | Dan          | Harris         |          2014 |             29 |   256 |
+|      34 | fake_book                                 | Freida       | Harris         |          2001 |            287 |   428 |
+|      35 | Lincoln In The Bardo                      | George       | Saunders       |          2017 |           1000 |   367 |
++---------+-------------------------------------------+--------------+----------------+---------------+----------------+-------+
+23 rows in set (0.00 sec)
+
+MariaDB [table]> select title,released_year from books where released_year>=2000 and released_year % 2 != 0;
++-------------------------------------------+---------------+
+| title                                     | released_year |
++-------------------------------------------+---------------+
+| The Namesake                              |          2003 |
+| American Gods                             |          2001 |
+| The Circle                                |          2013 |
+| A Heartbreaking Work of Staggering Genius |          2001 |
+| Coraline                                  |          2003 |
+| Consider the Lobster                      |          2005 |
+| The Namesake                              |          2003 |
+| American Gods                             |          2001 |
+| The Circle                                |          2013 |
+| A Heartbreaking Work of Staggering Genius |          2001 |
+| Coraline                                  |          2003 |
+| Consider the Lobster                      |          2005 |
+| fake_book                                 |          2001 |
+| Lincoln In The Bardo                      |          2017 |
++-------------------------------------------+---------------+
+14 rows in set (0.00 sec)
+
+MariaDB [table]> select title,released_year from books,
+    -> CASE
+    ->     when released_year >= 2000 THEN 'modern lit'
+    ->     ELSE '20th century lit'
+    -> END AS GENRE
+    -> FROM books;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CASE
+    when released_year >= 2000 THEN 'modern lit'
+    ELSE '20th century lit' at line 2
+MariaDB [table]> select title,released_year,
+    ->  case
+    ->          when released_year >= 2000 then 'modern lit'
+    ->          else '20th century lit'
+    ->  end as genre
+    -> from books;
++-----------------------------------------------------+---------------+------------------+
+| title                                               | released_year | genre            |
++-----------------------------------------------------+---------------+------------------+
+| The Namesake                                        |          2003 | modern lit       |
+| Norse Mythology                                     |          2016 | modern lit       |
+| American Gods                                       |          2001 | modern lit       |
+| Interpreter of Maladies                             |          1996 | 20th century lit |
+| A Hologram for the King: A Novel                    |          2012 | modern lit       |
+| The Circle                                          |          2013 | modern lit       |
+| The Amazing Adventures of Kavalier & Clay           |          2000 | modern lit       |
+| Just Kids                                           |          2010 | modern lit       |
+| A Heartbreaking Work of Staggering Genius           |          2001 | modern lit       |
+| Coraline                                            |          2003 | modern lit       |
+| What We Talk About When We Talk About Love: Stories |          1981 | 20th century lit |
+| Where I'm Calling From: Selected Stories            |          1989 | 20th century lit |
+| White Noise                                         |          1985 | 20th century lit |
+| Cannery Row                                         |          1945 | 20th century lit |
+| Oblivion: Stories                                   |          2004 | modern lit       |
+| Consider the Lobster                                |          2005 | modern lit       |
+| The Namesake                                        |          2003 | modern lit       |
+| Norse Mythology                                     |          2016 | modern lit       |
+| American Gods                                       |          2001 | modern lit       |
+| Interpreter of Maladies                             |          1996 | 20th century lit |
+| A Hologram for the King: A Novel                    |          2012 | modern lit       |
+| The Circle                                          |          2013 | modern lit       |
+| The Amazing Adventures of Kavalier & Clay           |          2000 | modern lit       |
+| Just Kids                                           |          2010 | modern lit       |
+| A Heartbreaking Work of Staggering Genius           |          2001 | modern lit       |
+| Coraline                                            |          2003 | modern lit       |
+| What We Talk About When We Talk About Love: Stories |          1981 | 20th century lit |
+| Where I'm Calling From: Selected Stories            |          1989 | 20th century lit |
+| White Noise                                         |          1985 | 20th century lit |
+| Cannery Row                                         |          1945 | 20th century lit |
+| Oblivion: Stories                                   |          2004 | modern lit       |
+| Consider the Lobster                                |          2005 | modern lit       |
+| 10% Happier                                         |          2014 | modern lit       |
+| fake_book                                           |          2001 | modern lit       |
+| Lincoln In The Bardo                                |          2017 | modern lit       |
+| undefined                                           |          NULL | 20th century lit |
++-----------------------------------------------------+---------------+------------------+
+36 rows in set (0.00 sec)
+
+MariaDB [table]> select title, stock_quantity,
+    ->          case
+    ->            when stock_quantity between 0 and 50 then '*'
+    ->            when stock_quantity between 51 and 100 then '**'
+    ->          end as stock
+    -> from books;
++-----------------------------------------------------+----------------+-------+
+| title                                               | stock_quantity | stock |
++-----------------------------------------------------+----------------+-------+
+| The Namesake                                        |             32 | *     |
+| Norse Mythology                                     |             43 | *     |
+| American Gods                                       |             12 | *     |
+| Interpreter of Maladies                             |             97 | **    |
+| A Hologram for the King: A Novel                    |            154 | NULL  |
+| The Circle                                          |             26 | *     |
+| The Amazing Adventures of Kavalier & Clay           |             68 | **    |
+| Just Kids                                           |             55 | **    |
+| A Heartbreaking Work of Staggering Genius           |            104 | NULL  |
+| Coraline                                            |            100 | **    |
+| What We Talk About When We Talk About Love: Stories |             23 | *     |
+| Where I'm Calling From: Selected Stories            |             12 | *     |
+| White Noise                                         |             49 | *     |
+| Cannery Row                                         |             95 | **    |
+| Oblivion: Stories                                   |            172 | NULL  |
+| Consider the Lobster                                |             92 | **    |
+| The Namesake                                        |             32 | *     |
+| Norse Mythology                                     |             43 | *     |
+| American Gods                                       |             12 | *     |
+| Interpreter of Maladies                             |             97 | **    |
+| A Hologram for the King: A Novel                    |            154 | NULL  |
+| The Circle                                          |             26 | *     |
+| The Amazing Adventures of Kavalier & Clay           |             68 | **    |
+| Just Kids                                           |             55 | **    |
+| A Heartbreaking Work of Staggering Genius           |            104 | NULL  |
+| Coraline                                            |            100 | **    |
+| What We Talk About When We Talk About Love: Stories |             23 | *     |
+| Where I'm Calling From: Selected Stories            |             12 | *     |
+| White Noise                                         |             49 | *     |
+| Cannery Row                                         |             95 | **    |
+| Oblivion: Stories                                   |            172 | NULL  |
+| Consider the Lobster                                |             92 | **    |
+| 10% Happier                                         |             29 | *     |
+| fake_book                                           |            287 | NULL  |
+| Lincoln In The Bardo                                |           1000 | NULL  |
+| undefined                                           |           NULL | NULL  |
++-----------------------------------------------------+----------------+-------+
+36 rows in set (0.00 sec)
+
+MariaDB [table]> SELECT title, stock_quantity,
+    ->     CASE
+    ->         WHEN stock_quantity BETWEEN 0 AND 50 THEN '*'
+    ->         WHEN stock_quantity BETWEEN 51 AND 100 THEN '**'
+    ->         ELSE '***'
+    ->     END AS STOCK
+    -> FROM books;
++-----------------------------------------------------+----------------+-------+
+| title                                               | stock_quantity | STOCK |
++-----------------------------------------------------+----------------+-------+
+| The Namesake                                        |             32 | *     |
+| Norse Mythology                                     |             43 | *     |
+| American Gods                                       |             12 | *     |
+| Interpreter of Maladies                             |             97 | **    |
+| A Hologram for the King: A Novel                    |            154 | ***   |
+| The Circle                                          |             26 | *     |
+| The Amazing Adventures of Kavalier & Clay           |             68 | **    |
+| Just Kids                                           |             55 | **    |
+| A Heartbreaking Work of Staggering Genius           |            104 | ***   |
+| Coraline                                            |            100 | **    |
+| What We Talk About When We Talk About Love: Stories |             23 | *     |
+| Where I'm Calling From: Selected Stories            |             12 | *     |
+| White Noise                                         |             49 | *     |
+| Cannery Row                                         |             95 | **    |
+| Oblivion: Stories                                   |            172 | ***   |
+| Consider the Lobster                                |             92 | **    |
+| The Namesake                                        |             32 | *     |
+| Norse Mythology                                     |             43 | *     |
+| American Gods                                       |             12 | *     |
+| Interpreter of Maladies                             |             97 | **    |
+| A Hologram for the King: A Novel                    |            154 | ***   |
+| The Circle                                          |             26 | *     |
+| The Amazing Adventures of Kavalier & Clay           |             68 | **    |
+| Just Kids                                           |             55 | **    |
+| A Heartbreaking Work of Staggering Genius           |            104 | ***   |
+| Coraline                                            |            100 | **    |
+| What We Talk About When We Talk About Love: Stories |             23 | *     |
+| Where I'm Calling From: Selected Stories            |             12 | *     |
+| White Noise                                         |             49 | *     |
+| Cannery Row                                         |             95 | **    |
+| Oblivion: Stories                                   |            172 | ***   |
+| Consider the Lobster                                |             92 | **    |
+| 10% Happier                                         |             29 | *     |
+| fake_book                                           |            287 | ***   |
+| Lincoln In The Bardo                                |           1000 | ***   |
+| undefined                                           |           NULL | ***   |
++-----------------------------------------------------+----------------+-------+
+36 rows in set (0.00 sec)
+
+MariaDB [table]> select 10 != 10;
++----------+
+| 10 != 10 |
++----------+
+|        0 |
++----------+
+1 row in set (0.00 sec)
+
+MariaDB [table]> select 15 >14 && 99-5 <= 94;
++----------------------+
+| 15 >14 && 99-5 <= 94 |
++----------------------+
+|                    1 |
++----------------------+
+1 row in set (0.00 sec)
+
+MariaDB [table]> select 1 in (5,3) || 9 between 8 and 10;
++----------------------------------+
+| 1 in (5,3) || 9 between 8 and 10 |
++----------------------------------+
+|                                1 |
++----------------------------------+
+1 row in set (0.00 sec)
+
+MariaDB [table]> select title,released_year from books where released_year <= 1980;
++-------------+---------------+
+| title       | released_year |
++-------------+---------------+
+| Cannery Row |          1945 |
+| Cannery Row |          1945 |
++-------------+---------------+
+2 rows in set (0.00 sec)
+
+MariaDB [table]> select * from books where author_lname in ('eggers','chabon');
++---------+-------------------------------------------+--------------+--------------+---------------+----------------+-------+
+| book_id | title                                     | author_fname | author_lname | released_year | stock_quantity | pages |
++---------+-------------------------------------------+--------------+--------------+---------------+----------------+-------+
+|       5 | A Hologram for the King: A Novel          | Dave         | Eggers       |          2012 |            154 |   352 |
+|       6 | The Circle                                | Dave         | Eggers       |          2013 |             26 |   504 |
+|       7 | The Amazing Adventures of Kavalier & Clay | Michael      | Chabon       |          2000 |             68 |   634 |
+|       9 | A Heartbreaking Work of Staggering Genius | Dave         | Eggers       |          2001 |            104 |   437 |
+|      21 | A Hologram for the King: A Novel          | Dave         | Eggers       |          2012 |            154 |   352 |
+|      22 | The Circle                                | Dave         | Eggers       |          2013 |             26 |   504 |
+|      23 | The Amazing Adventures of Kavalier & Clay | Michael      | Chabon       |          2000 |             68 |   634 |
+|      25 | A Heartbreaking Work of Staggering Genius | Dave         | Eggers       |          2001 |            104 |   437 |
++---------+-------------------------------------------+--------------+--------------+---------------+----------------+-------+
+8 rows in set (0.00 sec)
+
+MariaDB [table]> select * from books where author_lname='lahiri',released_year>=2000;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'released_year>=2000' at line 1
+MariaDB [table]> select * from books where author_lname='lahiri' and released_year>=2000;
++---------+--------------+--------------+--------------+---------------+----------------+-------+
+| book_id | title        | author_fname | author_lname | released_year | stock_quantity | pages |
++---------+--------------+--------------+--------------+---------------+----------------+-------+
+|       1 | The Namesake | Jhumpa       | Lahiri       |          2003 |             32 |   291 |
+|      17 | The Namesake | Jhumpa       | Lahiri       |          2003 |             32 |   291 |
++---------+--------------+--------------+--------------+---------------+----------------+-------+
+2 rows in set (0.00 sec)
+
+MariaDB [table]> select * from books where pages between 100 and 200;
++---------+-----------------------------------------------------+--------------+--------------+---------------+----------------+-------+
+| book_id | title                                               | author_fname | author_lname | released_year | stock_quantity | pages |
++---------+-----------------------------------------------------+--------------+--------------+---------------+----------------+-------+
+|       4 | Interpreter of Maladies                             | Jhumpa       | Lahiri       |          1996 |             97 |   198 |
+|      11 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver       |          1981 |             23 |   176 |
+|      14 | Cannery Row                                         | John         | Steinbeck    |          1945 |             95 |   181 |
+|      20 | Interpreter of Maladies                             | Jhumpa       | Lahiri       |          1996 |             97 |   198 |
+|      27 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver       |          1981 |             23 |   176 |
+|      30 | Cannery Row                                         | John         | Steinbeck    |          1945 |             95 |   181 |
++---------+-----------------------------------------------------+--------------+--------------+---------------+----------------+-------+
+6 rows in set (0.00 sec)
+
+MariaDB [table]> select * from books where author_lname in ('c%','s%');
+Empty set (0.00 sec)
+
+MariaDB [table]> select * from books where author_lname like 'c%' or author_lname like 's%';
++---------+-----------------------------------------------------+--------------+--------------+---------------+----------------+-------+
+| book_id | title                                               | author_fname | author_lname | released_year | stock_quantity | pages |
++---------+-----------------------------------------------------+--------------+--------------+---------------+----------------+-------+
+|       7 | The Amazing Adventures of Kavalier & Clay           | Michael      | Chabon       |          2000 |             68 |   634 |
+|       8 | Just Kids                                           | Patti        | Smith        |          2010 |             55 |   304 |
+|      11 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver       |          1981 |             23 |   176 |
+|      12 | Where I'm Calling From: Selected Stories            | Raymond      | Carver       |          1989 |             12 |   526 |
+|      14 | Cannery Row                                         | John         | Steinbeck    |          1945 |             95 |   181 |
+|      23 | The Amazing Adventures of Kavalier & Clay           | Michael      | Chabon       |          2000 |             68 |   634 |
+|      24 | Just Kids                                           | Patti        | Smith        |          2010 |             55 |   304 |
+|      27 | What We Talk About When We Talk About Love: Stories | Raymond      | Carver       |          1981 |             23 |   176 |
+|      28 | Where I'm Calling From: Selected Stories            | Raymond      | Carver       |          1989 |             12 |   526 |
+|      30 | Cannery Row                                         | John         | Steinbeck    |          1945 |             95 |   181 |
+|      35 | Lincoln In The Bardo                                | George       | Saunders     |          2017 |           1000 |   367 |
++---------+-----------------------------------------------------+--------------+--------------+---------------+----------------+-------+
+11 rows in set (0.00 sec)
+
+MariaDB [table]> select title,author_lname,
+    -> case
+    ->  when title like '%stories%' then 'novel'
+    ->  WHEN title ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 4
+MariaDB [table]> select title,author_lname,
+    ->          case
+    ->            when title like '%stories%' then 'novel'
+    ->            when title like '%just kids%' and title like '% a heartbreaking work%' then 'memoir'
+    ->          else 'short stories'
+    -> from books;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from books' at line 6
+MariaDB [table]> select title,author_lname,
+    ->          case
+    ->            when title like '%stories%' then 'short stories'
+    ->            when title like '%just kids%' and title like '%a heartbreaking work%' then 'memoir'
+    ->            ELSE 'novel'
+    ->          end as type
+    -> from books;
++-----------------------------------------------------+----------------+---------------+
+| title                                               | author_lname   | type          |
++-----------------------------------------------------+----------------+---------------+
+| The Namesake                                        | Lahiri         | novel         |
+| Norse Mythology                                     | Gaiman         | novel         |
+| American Gods                                       | Gaiman         | novel         |
+| Interpreter of Maladies                             | Lahiri         | novel         |
+| A Hologram for the King: A Novel                    | Eggers         | novel         |
+| The Circle                                          | Eggers         | novel         |
+| The Amazing Adventures of Kavalier & Clay           | Chabon         | novel         |
+| Just Kids                                           | Smith          | novel         |
+| A Heartbreaking Work of Staggering Genius           | Eggers         | novel         |
+| Coraline                                            | Gaiman         | novel         |
+| What We Talk About When We Talk About Love: Stories | Carver         | short stories |
+| Where I'm Calling From: Selected Stories            | Carver         | short stories |
+| White Noise                                         | DeLillo        | novel         |
+| Cannery Row                                         | Steinbeck      | novel         |
+| Oblivion: Stories                                   | Foster Wallace | short stories |
+| Consider the Lobster                                | Foster Wallace | novel         |
+| The Namesake                                        | Lahiri         | novel         |
+| Norse Mythology                                     | Gaiman         | novel         |
+| American Gods                                       | Gaiman         | novel         |
+| Interpreter of Maladies                             | Lahiri         | novel         |
+| A Hologram for the King: A Novel                    | Eggers         | novel         |
+| The Circle                                          | Eggers         | novel         |
+| The Amazing Adventures of Kavalier & Clay           | Chabon         | novel         |
+| Just Kids                                           | Smith          | novel         |
+| A Heartbreaking Work of Staggering Genius           | Eggers         | novel         |
+| Coraline                                            | Gaiman         | novel         |
+| What We Talk About When We Talk About Love: Stories | Carver         | short stories |
+| Where I'm Calling From: Selected Stories            | Carver         | short stories |
+| White Noise                                         | DeLillo        | novel         |
+| Cannery Row                                         | Steinbeck      | novel         |
+| Oblivion: Stories                                   | Foster Wallace | short stories |
+| Consider the Lobster                                | Foster Wallace | novel         |
+| 10% Happier                                         | Harris         | novel         |
+| fake_book                                           | Harris         | novel         |
+| Lincoln In The Bardo                                | Saunders       | novel         |
+| undefined                                           | NULL           | novel         |
++-----------------------------------------------------+----------------+---------------+
+36 rows in set (0.00 sec)
+
+MariaDB [table]> select title,author_lname,count(*) from books group by author_lname;
++-----------------------------------------------------+----------------+----------+
+| title                                               | author_lname   | count(*) |
++-----------------------------------------------------+----------------+----------+
+| undefined                                           | NULL           |        1 |
+| What We Talk About When We Talk About Love: Stories | Carver         |        4 |
+| The Amazing Adventures of Kavalier & Clay           | Chabon         |        2 |
+| White Noise                                         | DeLillo        |        2 |
+| A Hologram for the King: A Novel                    | Eggers         |        6 |
+| Oblivion: Stories                                   | Foster Wallace |        4 |
+| Norse Mythology                                     | Gaiman         |        6 |
+| 10% Happier                                         | Harris         |        2 |
+| The Namesake                                        | Lahiri         |        4 |
+| Lincoln In The Bardo                                | Saunders       |        1 |
+| Just Kids                                           | Smith          |        2 |
+| Cannery Row                                         | Steinbeck      |        2 |
++-----------------------------------------------------+----------------+----------+
+12 rows in set (0.00 sec)
+
+MariaDB [table]>
